@@ -117,4 +117,10 @@
 #pagebreak()
 
 #include "conclusion.typ"
+
+#bibliography(
+  "Biblio.bib",
+  title: "Bibliographie",
+  style : "ieee" 
+)
 //----------------------------------------------------------//

@@ -18,3 +18,7 @@
   raw_sv("Codes/SystemVerilog/toto.sv")
 )
 #raw_sv("Codes/SystemVerilog/toto.sv")
+
+== Exemple citing
+
+@kumar2024radio @corneloup1999imaginaire @sorokin2006multiple
