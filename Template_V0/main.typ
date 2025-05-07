@@ -1,0 +1,108 @@
+//----------------------------------------------------------//
+//----------------------------------------------------------//
+//Parameters to change
+#let chemin_logo_entreprise = "Photos/Logos/logo_entreprise.png"
+#let chemin_logo_ecole = "Photos/Logos/logo_ecole.png"
+#let text_header = [_Rapport de stage : Titre du rapport_]
+#let name_header = [NOM Prénom]
+//----------------------------------------------------------//
+//----------------------------------------------------------//
+
+//General parameters for the template
+#set page(margin: 25.4mm, paper: "a4")
+#set par(leading: 0.55em, spacing: 0.55em, first-line-indent: 1.8em, justify: true)
+#set text(font: "New Computer Modern")
+#show raw: set text(font: "New Computer Modern Mono")
+#show heading: set block(above: 1.4em, below: 1em)
+
+//Template to include codes, needs to be added to files where code need to be used (not a global variable)
+#show raw.where(block: true): c => block(
+  fill: luma(230), 
+  inset: 5pt,
+  radius: 2pt,
+  {  
+    show raw.line: line => {
+      text(fill: black)[#line.number]
+      h(1em)
+      line.body
+    }
+    c
+  }
+)
+#let raw_sv = f => raw(read(f), block: true, lang: "systemverilog")
+
+//Title
+#include "title.typ"
+#pagebreak()
+
+//Special pages (tables and thanks)
+#context counter(page).update(1)
+#set page(
+  margin: (top: 30mm, bottom: 25.4mm, x: 15mm),  //To change margins in the whole doc
+  paper: "a4",
+  header-ascent: 40%,
+  header: [
+    #text_header
+    #h(1fr)
+    #name_header
+    #line(length: 100%, stroke: 0.1em)
+  ],
+  footer: {
+    set image(height: 4em)
+    line(length: 100%, stroke: 0.1em)
+    grid(columns: 3*(1fr,), align: (left, center + horizon, right),
+      image(chemin_logo_entreprise),
+      context counter(page).display("i"),
+      image(chemin_logo_ecole)
+    )
+  }
+)
+
+//Remerciements
+#include "remerciement.typ"
+#pagebreak()
+
+//Table of contents
+#outline(
+  title: [Sommaire],
+) <sommaire>
+#pagebreak()
+
+//Table of images
+#outline(
+  title: [Liste des Figures],
+  target: figure.where(kind: image),
+)
+
+//Sets the parameters for the core of the report
+#set heading(numbering: "I.1.a.")
+#set page(
+  footer: {
+    set image(height: 4em)
+    line(length: 100%, stroke: 0.1em)
+    grid(columns: 3*(1fr,), align: (left, center + horizon, right),
+      image(chemin_logo_entreprise),
+      link(<sommaire>, context counter(page).display("1")),
+      image(chemin_logo_ecole)
+    )
+  }
+)
+#context counter(page).update(1)
+
+//----------------------------------------------------------//
+//----------------------------------------------------------//
+//Core of the report
+#include "intro.typ"
+#pagebreak()
+
+#include "Template1.typ"
+#pagebreak()
+
+#include "Template2.typ"
+#pagebreak()
+
+#include "Template3.typ"
+#pagebreak()
+
+#include "conclusion.typ"
+//----------------------------------------------------------//
