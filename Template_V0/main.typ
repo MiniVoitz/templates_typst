@@ -83,6 +83,7 @@
 
 //Sets the parameters for the core of the report
 #set heading(numbering: "I.1.a.")
+#set figure(numbering: "1 ")
 #set page(
   footer: {
     set image(height: 4em)
@@ -102,10 +103,10 @@
 #include "intro.typ"
 #pagebreak()
 
-#include "Template1.typ"
+#include "Template_tabs.typ"
 #pagebreak()
 
-#include "Template2.typ"
+#include "Template_images.typ"
 #pagebreak()
 
 #include "Template3.typ"
