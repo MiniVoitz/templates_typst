@@ -73,6 +73,13 @@
   title: [Liste des Figures],
   target: figure.where(kind: image),
 )
+#pagebreak()
+
+//Table of tables
+#outline(
+  title: [Liste des Tableaux],
+  target: figure.where(kind: table),
+)
 
 //Sets the parameters for the core of the report
 #set heading(numbering: "I.1.a.")
