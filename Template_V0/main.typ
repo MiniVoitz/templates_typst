@@ -16,19 +16,19 @@
 #show heading: set block(above: 1.4em, below: 1em)
 
 //Template to include codes, needs to be added to files where code need to be used (not a global variable)
-#show raw.where(block: true): c => block(
-  fill: luma(230), 
-  inset: 5pt,
-  radius: 2pt,
-  {  
-    show raw.line: line => {
-      text(fill: black)[#line.number]
-      h(1em)
-      line.body
-    }
-    c
-  }
-)
+// #show raw.where(block: true): c => block(
+//   fill: luma(230), 
+//   inset: 5pt,
+//   radius: 2pt,
+//   {  
+//     show raw.line: line => {
+//       text(fill: black)[#line.number]
+//       h(1em)
+//       line.body
+//     }
+//     c
+//   }
+// )
 #let raw_sv = f => raw(read(f), block: true, lang: "systemverilog")
 
 //Title
@@ -108,6 +108,10 @@
 
 #include "Template_images.typ"
 #pagebreak()
+
+#include "Template_Codly.typ"
+#pagebreak()
+
 
 #include "Template3.typ"
 #pagebreak()
