@@ -31,24 +31,26 @@
 #v(5em)
 
 #figure(
-  grid(
-    columns: 3*(auto,),
-    column-gutter: 1em,
-    row-gutter: 1em,
-    image("Photos/Folder2/photo1.jpg"),
-    image("Photos/Folder2/photo1.jpg"),
-    image("Photos/Folder2/photo1.jpg"),
-    image("Photos/Folder2/photo1.jpg"),
-    image("Photos/Folder2/photo1.jpg"),
-    image("Photos/Folder2/photo1.jpg"),
-  ),
+  [
+    #set grid(column-gutter: 1em, row-gutter: 1em)
+    #grid(
+      columns: 3,
+      image("Photos/Folder2/photo1.jpg"),
+      image("Photos/Folder2/photo1.jpg"),
+      image("Photos/Folder2/photo1.jpg"),
+    )
+    #grid(
+      columns: 2,
+      image("Photos/Folder2/photo1.jpg"),
+      image("Photos/Folder2/photo1.jpg"),
+    )
+  ],
   caption: [Ici avec une description générale à toutes les images et un espace entre les images]
-)
+) <fig>
 
 #figure(
   grid(
-    columns: 3*(auto,),
-    rows: 2,
+    columns: 3,
     inset: 1em,
     align: horizon,
     figure(image("Photos/Folder2/photo1.jpg"), caption: [Image1], numbering: none, kind: "none"),
