@@ -3,7 +3,7 @@
 //Parameters to change
 #let chemin_logo_entreprise = "Photos/Logos/logo_entreprise.png"
 #let chemin_logo_ecole = "Photos/Logos/logo_ecole.png"
-#let nom_entreprise = [Thales Silicon Security]
+#let nom_entreprise = [Nom de l'entreprise]
 #let nom_ecole = [Ecole des Mines de Saint-Etienne (EMSE)]
 #let titre_rapport = [*Sujet du stage*]
 #let date_debut = [(date de debut)]
