@@ -112,6 +112,8 @@
 #include "Template_Codly.typ"
 #pagebreak()
 
+#include "Template_text.typ"
+#pagebreak()
 
 #include "Template3.typ"
 #pagebreak()
