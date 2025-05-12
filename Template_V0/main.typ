@@ -81,6 +81,14 @@
   target: figure.where(kind: table),
 )
 
+Table of codes
+#outline(
+  title: [Liste des Codes],
+  target: figure.where(kind:raw),
+)
+#pagebreak()
+
+
 //Sets the parameters for the core of the report
 #set heading(numbering: "I.1.a.")
 #set figure(numbering: "1 ")
