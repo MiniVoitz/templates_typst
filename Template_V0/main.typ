@@ -14,21 +14,13 @@
 #set text(font: "New Computer Modern")
 #show raw: set text(font: "New Computer Modern Mono")
 #show heading: set block(above: 1.4em, below: 1em)
+//----------------------------------------------------------//
+//----------------------------------------------------------//
+#import "glossary.typ": make-glossary, register-glossary, print-glossary, gls, glspl, entry-list
 
-//Template to include codes, needs to be added to files where code need to be used (not a global variable)
-// #show raw.where(block: true): c => block(
-//   fill: luma(230), 
-//   inset: 5pt,
-//   radius: 2pt,
-//   {  
-//     show raw.line: line => {
-//       text(fill: black)[#line.number]
-//       h(1em)
-//       line.body
-//     }
-//     c
-//   }
-// )
+//----------------------------------------------------------//
+//----------------------------------------------------------//
+
 #let raw_sv = f => raw(read(f), block: true, lang: "systemverilog")
 
 //Title
@@ -81,12 +73,17 @@
   target: figure.where(kind: table),
 )
 
-Table of codes
+// Table of codes
 #outline(
   title: [Liste des Codes],
   target: figure.where(kind:raw),
 )
 #pagebreak()
+
+#include "glossary.typ"
+#show : make-glossary
+#register-glossary(entry-list)
+#print-glossary(entry-list,disable-back-references: true)
 
 
 //Sets the parameters for the core of the report
@@ -124,6 +121,8 @@ Table of codes
 #pagebreak()
 
 #include "Template3.typ"
+#pagebreak()
+#include "Template2.typ"
 #pagebreak()
 
 #include "conclusion.typ"

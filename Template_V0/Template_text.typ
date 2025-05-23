@@ -1,4 +1,5 @@
 = Template 4 : Texte 
+This is a text
 
 #lorem(60)
 
